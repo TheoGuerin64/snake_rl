@@ -464,7 +464,7 @@ name = "nvidia-cudnn-cu11"
 version = "9.1.0.70"
 source = { registry = "https://download.pytorch.org/whl/cu118" }
 dependencies = [
-    { name = "nvidia-cublas-cu11" },
+    { name = "nvidia-cublas-cu11", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
 ]
 wheels = [
     { url = "https://download.pytorch.org/whl/cu118/nvidia_cudnn_cu11-9.1.0.70-py3-none-manylinux2014_x86_64.whl", hash = "sha256:e6135ac63fe9d5b0b89cfb35c3fc1c1349f2b995becadf2e9dc21bca89d9633d" },
@@ -491,7 +491,7 @@ name = "nvidia-cusolver-cu11"
 version = "11.4.1.48"
 source = { registry = "https://download.pytorch.org/whl/cu118" }
 dependencies = [
-    { name = "nvidia-cublas-cu11" },
+    { name = "nvidia-cublas-cu11", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
 ]
 wheels = [
     { url = "https://download.pytorch.org/whl/cu118/nvidia_cusolver_cu11-11.4.1.48-py3-none-manylinux1_x86_64.whl", hash = "sha256:ca538f545645b7e6629140786d3127fe067b3d5a085bd794cde5bfe877c8926f" },
@@ -759,6 +759,8 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "gymnasium" },
+    { name = "numpy" },
+    { name = "pygame" },
     { name = "stable-baselines3", extra = ["extra"] },
     { name = "torch" },
 ]
@@ -766,6 +768,8 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "gymnasium", specifier = ">=1.2.2" },
+    { name = "numpy", specifier = ">=2.3.3" },
+    { name = "pygame", specifier = ">=2.6.1" },
     { name = "stable-baselines3", extras = ["extra"], specifier = ">=2.7.0" },
     { name = "torch", specifier = ">=2.7.1" },
 ]
@@ -888,7 +892,7 @@ name = "triton"
 version = "3.3.1"
 source = { registry = "https://download.pytorch.org/whl/cu118" }
 dependencies = [
-    { name = "setuptools" },
+    { name = "setuptools", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
 ]
 wheels = [
     { url = "https://download.pytorch.org/whl/triton-3.3.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl" },

@@ -4,6 +4,8 @@ version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
     "gymnasium>=1.2.2",
+    "numpy>=2.3.3",
+    "pygame>=2.6.1",
     "stable-baselines3[extra]>=2.7.0",
     "torch>=2.7.1",
 ]
@@ -12,8 +14,12 @@ dependencies = [
 url = "https://download.pytorch.org/whl/cu118"
 
 [project.scripts]
-snake = "snake:main"
+train = "snake:train"
+play = "snake:play"
 
 [build-system]
 requires = ["uv_build>=0.9.4,<0.10.0"]
 build-backend = "uv_build"
+
+[tool.basedpyright]
+reportUnusedCallResult = false
