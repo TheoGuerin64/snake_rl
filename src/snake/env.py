@@ -93,9 +93,7 @@ class SnakeEnv(gym.Env[np.ndarray, int]):
 
         try:
             won, eaten = self.game.step(direction)
-        except ReverseDirectionError:
-            return self._get_observation(), 0.0, False, False, {}
-        except (WallCollisionError, SelfCollisionError):
+        except (ReverseDirectionError, WallCollisionError, SelfCollisionError):
             return self._get_observation(), -10.0, True, False, {}
 
         if eaten:
